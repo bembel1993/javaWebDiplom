@@ -1,0 +1,27 @@
+CREATE TABLE `person` (
+                          `id` INT(10) NOT NULL AUTO_INCREMENT,
+                          `name` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'cp1250_general_ci',
+                          `surname` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'cp1250_general_ci',
+                          `date` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'cp1250_general_ci',
+                          `email` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'cp1250_general_ci',
+                          `number` VARCHAR(50) NOT NULL DEFAULT '0' COLLATE 'cp1250_general_ci',
+                          PRIMARY KEY (`id`) USING BTREE
+)
+    COLLATE='cp1250_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
+
+CREATE TABLE `user` (
+                        `id` INT(10) NOT NULL AUTO_INCREMENT,
+                        `login` VARCHAR(50) NULL DEFAULT NULL COLLATE 'cp1250_general_ci',
+                        `password` VARCHAR(50) NULL DEFAULT NULL COLLATE 'cp1250_general_ci',
+                        `personId` INT(10) NULL DEFAULT NULL,
+                        PRIMARY KEY (`id`) USING BTREE,
+                        INDEX `personId` (`personId`) USING BTREE,
+                        CONSTRAINT `FK_user_person` FOREIGN KEY (`personId`) REFERENCES `javaweb`.`person` (`id`) ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+    COLLATE='cp1250_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
