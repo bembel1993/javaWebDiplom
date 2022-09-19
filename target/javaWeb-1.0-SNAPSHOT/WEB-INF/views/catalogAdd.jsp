@@ -251,7 +251,7 @@
         <div class="welcome"> ${name} you are in Catalog!</div>
     </div>
 </div>
-
+<div>
 <center>
     <table border="0" align="center" width="50%" high="30px">
         <tr align="center" bgcolor="#4169e1">
@@ -279,6 +279,7 @@
 </center>
     <center>
         <h1>File Upload to Database</h1>
+        <p><font color="red">${errorMessage}</font</p>
         <form method="post" action="AddProductInCatalog">
             <table border="0">
                 <tr>
@@ -311,8 +312,6 @@
     <div>CALL OUR CENTER !</div>
     <div>1-800-123-45678</div>
     <div>1-800-222-45678</div>
-</div>
-</div>
 </div>
 </body>
 </html>

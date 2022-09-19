@@ -15,10 +15,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "AddProductInCatalog", urlPatterns = "/AddProductInCatalog")
 public class AddProductInCatalog extends HttpServlet {
+    //private static final long serialVersionUID = 1L;
     ProductService productService = new ProductServiceImpl();
     private ListService todoService = new ListService();
 
@@ -27,13 +29,17 @@ public class AddProductInCatalog extends HttpServlet {
         List<Product> productList = productService.showProduct();
         System.out.println("");
         System.out.format("%10s%20s%20s%20s%20s", "ID |", "Name Prod |", "Price |", "Manufacturer |", "Release Date ");
-        for (Product p : productList) {
+        for (Product product : productList) {
             System.out.println(" ");
-            System.out.format("%10s%20s%20s%20s%20s", p.getId() + " |", p.getNameprod() +
-                            " |", p.getPrice() + " |", p.getManufacturer() + " |",
-                    p.getReleaseDate());
+            System.out.format("%10s%20s%20s%20s%20s", product.getId() + " |", product.getNameprod() +
+                            " |", product.getPrice() + " |", product.getManufacturer() + " |",
+                    product.getReleaseDate());
+
         }
-        request.setAttribute("group", ListService.retrieveList());
+        //request.setAttribute("productList", productList);
+        System.out.println("");
+        System.out.println(productList);
+        request.getSession().setAttribute("group", productList);
         request.getRequestDispatcher("/WEB-INF/views/catalogAdd.jsp").forward(request, response);
     }
 
@@ -50,7 +56,6 @@ public class AddProductInCatalog extends HttpServlet {
             request.setAttribute("errorMessage", "Fill in all the fields");
         } else {
             productService.addProduct(product);
-            ListService.addPerson(new Product(nameprod, price, manufacturer, releaseDate));
             System.out.format("%10s%20s%20s%20s%20s", "ID |", "Name Prod |", "Price |", "Manufacturer |", "Release Date ");
             for (Product p : productList) {
                 System.out.println(" ");
@@ -58,7 +63,10 @@ public class AddProductInCatalog extends HttpServlet {
                                 " |", p.getPrice() + " |", p.getManufacturer() + " |",
                         p.getReleaseDate());
             }
+            ListService.addProduct(new Product(nameprod, price, manufacturer, releaseDate));
         }
+        //System.out.println(" ");
+        //System.out.println(productList);
         request.getSession().setAttribute("group", productList);
         request.getRequestDispatcher("/WEB-INF/views/catalogAdd.jsp").forward(request, response);
 

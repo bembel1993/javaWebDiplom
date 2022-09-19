@@ -218,7 +218,7 @@
     }
 
 </style>
-<body>
+<div>
 <div id="layout">
     <div id="title">
         <div id="logo">
@@ -256,20 +256,20 @@
 <center>
     <table border="0" align="center" width="50%" high="30px">
         <tr align="center" bgcolor="#4169e1">
-            <th>id</th>
+
             <th>nameprod</th>
             <th>price</th>
             <th>manufacturer</th>
             <th>releaseDate</th>
         </tr>
 
-        <c:forEach items="${productList}" var="product">
+        <c:forEach items="${group}" var="product">
             <tr>
-                <td>${product.id}</td>
+
                 <td>${product.nameprod}</td>
-                <td> ${product.price}</td>
-                <td> ${product.manufacturer}</td>
-                <td> ${product.releaseDate}</td>
+                <td>${product.price}</td>
+                <td>${product.manufacturer}</td>
+                <td>${product.releaseDate}</td>
             </tr>
         </c:forEach>
 
@@ -278,7 +278,7 @@
 
     </table>
 </center>
-
+</div>
 <div class="content">
     <div >CALL OUR CENTER !</div>
     <div >1-800-123-45678</div>

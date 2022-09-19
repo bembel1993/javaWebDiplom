@@ -71,8 +71,6 @@ public class LoginServlet extends HttpServlet {
                 if (currentUser != null) {
                     System.out.println("Authorization completed is successful! Your welcome ! " +
                             currentUser.getPerson().getSurname() + " " + currentUser.getPerson().getFirstName());
-                    //    per = personService.findPersonByName(login);
-                    //  request.getSession().setAttribute("login", login);
                     request.getSession().setAttribute("name", name);
                     request.getSession().setAttribute("surname", surname);
                     response.sendRedirect(request.getContextPath() + "/WelcomeClassMenu");
@@ -80,17 +78,6 @@ public class LoginServlet extends HttpServlet {
                     request.setAttribute("errorMessage", "Invalid Login or password!!");
                     request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
                 }
-          /*  Person per = null;
-            if (isFound) {
-                per = personService.findPersonByName(login);
-                //request.getSession().setAttribute("login", login);
-                request.getSession().setAttribute("name", name);
-                request.getSession().setAttribute("surname", surname);
-                response.sendRedirect(request.getContextPath() + "/WelcomeClassMenu");
-            } else {
-                request.setAttribute("errorMessage", "Invalid Login or password!!");
-                request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
-            }*/
             } else {
                 System.out.println("Users in DB is not!");
                 request.setAttribute("errorMessage", "Not found User!!");
@@ -98,7 +85,4 @@ public class LoginServlet extends HttpServlet {
             }
         }
     }
-   /* public boolean validateUser(String user, String password) {
-        return user.equalsIgnoreCase("Vitali") && password.equals("root");
-    }*/
 }
