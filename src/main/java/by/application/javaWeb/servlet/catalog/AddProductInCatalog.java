@@ -9,6 +9,7 @@ import by.application.javaWeb.service.ProductService;
 import by.application.javaWeb.service.serviceImpl.PersonServiceImpl;
 import by.application.javaWeb.service.serviceImpl.ProductServiceImpl;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +28,7 @@ public class AddProductInCatalog extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Product> productList = productService.showProduct();
+
         System.out.println("");
         System.out.format("%10s%20s%20s%20s%20s", "ID |", "Name Prod |", "Price |", "Manufacturer |", "Release Date ");
         for (Product product : productList) {
@@ -39,6 +41,7 @@ public class AddProductInCatalog extends HttpServlet {
         //request.setAttribute("productList", productList);
         System.out.println("");
         System.out.println(productList);
+
         request.getSession().setAttribute("group", productList);
         request.getRequestDispatcher("/WEB-INF/views/catalogAdd.jsp").forward(request, response);
     }
@@ -49,6 +52,7 @@ public class AddProductInCatalog extends HttpServlet {
         String price = request.getParameter("price");
         String manufacturer = request.getParameter("manufacturer");
         String releaseDate = request.getParameter("releaseDate");
+        String delete = request.getParameter("delete");
         Product product = new Product(nameprod, price, manufacturer, releaseDate);
         List<Product> productList = productService.showProduct();
         if (("".equals(nameprod)) || ("".equals(price)) || ("".equals(manufacturer))
@@ -64,11 +68,18 @@ public class AddProductInCatalog extends HttpServlet {
                         p.getReleaseDate());
             }
             ListService.addProduct(new Product(nameprod, price, manufacturer, releaseDate));
+            request.getSession().setAttribute("group", productList);
+            request.getRequestDispatcher("/WEB-INF/views/catalogAdd.jsp").forward(request, response);
         }
-        //System.out.println(" ");
-        //System.out.println(productList);
-        request.getSession().setAttribute("group", productList);
-        request.getRequestDispatcher("/WEB-INF/views/catalogAdd.jsp").forward(request, response);
+        if (request.getParameter("delete") != null) {
+            int id2 = Integer.parseInt(request.getParameter("id"));
+            product.setId(id2);
+            productService.deleteProduct(id2);
+            request.getSession().setAttribute("group", productList);
+            request.getRequestDispatcher("/WEB-INF/views/catalogAdd.jsp").forward(request, response);
+
+        }
 
     }
+
 }

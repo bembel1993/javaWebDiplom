@@ -127,11 +127,10 @@
         font-family: Arial, Helvetica, sans-serif;
         font-size: 16px;
         font-weight: bold;
-        color: #FFFFFF;
+        color: gold;
         vertical-align: middle;
-        margin-left: 100px;
-        margin-top: 7px;
-
+        margin-left: 5px;
+        margin-top: 1px;
     }
 
     #search {
@@ -195,6 +194,7 @@
         font-weight: normal;
         color: #8ea11f;
         margin-left: 550px;
+        width: 300px;
 
     }
 
@@ -227,11 +227,15 @@
         </div>
         <div id="links">
             <div id="linktext"><a href="http://all-free-download.com/free-website-templates/" class="abt">About us</a>
-                <a href="http://all-free-download.com/free-website-templates/" class="abt1">Services</a> <a
-                        href="Catalog" class="abt1">Catalog</a> <a
-                        href="http://all-free-download.com/free-website-templates/" class="abt1">Partners</a> <a
-                        href="http://all-free-download.com/free-website-templates/" class="abt1">Contacts</a>
-                <a href="LoginServlet" class="abt1">LogIn</a></div>
+                <a href="http://all-free-download.com/free-website-templates/" class="abt1">Services</a>
+                <a href="Catalog" class="abt1">Catalog</a>
+                <a href="http://all-free-download.com/free-website-templates/" class="abt1">Partners</a>
+                <a href="http://all-free-download.com/free-website-templates/" class="abt1">Contacts</a>
+                <div class = "abt1"><a href="LoginServlet" class="abt2">LogIn</a>
+                <p class = "abt2">/</p>
+                <a href="RegistrationServlet" class="abt2">Reg</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -249,40 +253,55 @@
     </div>
 </div>
     <div id="curve">
-        <div class="onsale"><h1>ON SALE</h1></div>
+        <div class="onsale"><h1>NEW ON SALE</h1></div>
     </div>
 
-    <table align="center" bgcolor="#f5fffa" border=0 width="800">
+    <table align="center" bgcolor="#dcffed" border=0 width="800">
         <tr>
             <td colspan="2" align="center"><font size="6"></td>
             <form>
         <tr align="right" valign="bottom">
-            <td><font color="Black"><b>Quadrocopter</b></font></td>
-            <td><font color="Black"><b>Electric skateboard</b></font></td>
-            <td><font color="Black"><b>Headphones</b></font></td>
-            <td><font color="Black"><b>Keyboard</b></font></td>
-            <td><font color="Black"><b>Tablete</b></font></td>
+            <td><font color="Black"><b>${nameprod}</b></font></td>
+            <td><font color="Black"><b>Laptop</b></font></td>
+
         </tr>
 
         <tr align="right" valign="bottom">
             <td>
-                <img src="img/goods1.png" width="100" height="80"></td>
+                ${manufacturer}
+           <!--     <img src="img/samsungs.jpeg" width="600" height="auto">-->
+           </td>
             <td>
-                <img src="img/goods2.png" width="100" height="50"></td>
+                <img src="img/prosixteen.png" width="600" height="auto"></td>
+
+        </tr>
+
+        <tr align="left" valign="top">
             <td>
-                <img src="img/goods3.png" width="80" height="80"></td>
+                Display. 6.1 inches. 2340 x 1080 pixels. 120Hz Refresh rate.
+                Camera. 50 MP (Triple camera) 10 MP front.
+                Hardware. Qualcomm Snapdragon 8 Gen 1. 8GB RAM.
+                Storage. 128GB, not expandable.
+                Battery. 3700 mAh.
+                OS. Android 12. One UI UI.
+            </td>
             <td>
-                <img src="img/goods4.png" width="100" height="50"></td>
-            <td>
-                <img src="img/goods5.png" width="50" height="80"></td>
+                "Vivobook Pro 16X OLED brings you the speed and
+                accuracy you need to realize your vision,
+                with a 16-inch NanoEdge 4K OLED1 display,
+                11th Generation Intel® H Series CPU, and NVIDIA®
+                GeForce RTX™ 3050 graphics. The exclusive ASUS DialPad
+                gives you precise and intuitive control of your creative tools,
+                and the dual-fan cooling design lets you work in undisturbed peace.
+                Vivobook Pro 16X OLED unlocks the door to your creative future."
+            </td>
+
         </tr>
 
         <tr align="right">
             <td><input type="checkbox">$1000</input></td>
             <td><input type="checkbox">$500</input></td>
-            <td><input type="checkbox">$35</input></td>
-            <td><input type="checkbox">$40</input></td>
-            <td><input type="checkbox">$200</input></td>
+
         </tr>
 
         <tr>
@@ -321,11 +340,11 @@
         </tr>
 
         <tr width="20%">
-            <td colspan="2" align="right">
+            <td colspan="2" align="center">
                 <button type="submit">Order</button>
             </td>
             <td></td>
-            <td colspan="2" align="left">
+            <td colspan="2" align="center">
                 <button type="reset" name="res">Clear</button>
             </td>
             <td width="8%"></td>

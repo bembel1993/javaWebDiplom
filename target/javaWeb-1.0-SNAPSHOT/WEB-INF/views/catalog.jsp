@@ -8,6 +8,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -129,11 +130,10 @@
         font-family: Arial, Helvetica, sans-serif;
         font-size: 16px;
         font-weight: bold;
-        color: #FFFFFF;
+        color: gold;
         vertical-align: middle;
-        margin-left: 100px;
-        margin-top: 7px;
-
+        margin-left: 5px;
+        margin-top: 1px;
     }
 
     #search {
@@ -233,7 +233,11 @@
                 <a href="Catalog" class="abt1">Catalog</a>
                 <a href="http://all-free-download.com/free-website-templates/" class="abt1">Partners</a>
                 <a href="http://all-free-download.com/free-website-templates/" class="abt1">Contacts</a>
-                <a href="LoginServlet" class="abt1">LogIn</a></div>
+                <div class = "abt1"><a href="LoginServlet" class="abt2">LogIn</a>
+                    <p class = "abt2">/</p>
+                    <a href="RegistrationServlet" class="abt2">Reg</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -256,20 +260,19 @@
 <center>
     <table border="0" align="center" width="50%" high="30px">
         <tr align="center" bgcolor="#4169e1">
-
+            <th>id</th>
             <th>nameprod</th>
             <th>price</th>
             <th>manufacturer</th>
             <th>releaseDate</th>
         </tr>
-
-        <c:forEach items="${group}" var="product">
-            <tr>
-
-                <td>${product.nameprod}</td>
-                <td>${product.price}</td>
-                <td>${product.manufacturer}</td>
-                <td>${product.releaseDate}</td>
+        <c:forEach items="${group}" var="products">
+            <tr align="center" bgcolor="#dcffed">
+                <td>${products.id}</td>
+                <td>${products.nameprod}</td>
+                <td>${products.price}</td>
+                <td>${products.manufacturer}</td>
+                <td>${products.releaseDate}</td>
             </tr>
         </c:forEach>
 
@@ -279,6 +282,7 @@
     </table>
 </center>
 </div>
+
 <div class="content">
     <div >CALL OUR CENTER !</div>
     <div >1-800-123-45678</div>

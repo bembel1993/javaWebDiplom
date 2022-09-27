@@ -60,12 +60,6 @@ public class LoginServlet extends HttpServlet {
                     if (p.getUser().getLoginUser().equals(login) && !p.getUser().getPasswordUser().equals(password)) {
                         System.out.println("Verify the correct to the input!");
                     }
-                    if (login.equals("admin") && password.equals("admin")) {
-                        System.out.println(" ");
-
-                        name = "admin";
-                        isFound = true;
-                    }
                 }
                 Person per = null;
                 if (currentUser != null) {
@@ -73,7 +67,7 @@ public class LoginServlet extends HttpServlet {
                             currentUser.getPerson().getSurname() + " " + currentUser.getPerson().getFirstName());
                     request.getSession().setAttribute("name", name);
                     request.getSession().setAttribute("surname", surname);
-                    response.sendRedirect(request.getContextPath() + "/WelcomeClassMenu");
+                    response.sendRedirect(request.getContextPath() + "/WelcomeClassMenuUser");
                 } else {
                     request.setAttribute("errorMessage", "Invalid Login or password!!");
                     request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);

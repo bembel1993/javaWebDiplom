@@ -26,6 +26,33 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public boolean updateProduct(Product product) {
+        boolean isUpdated = false;
+        try {
+            if (productDao.updateProduct(product))
+                isUpdated = true;
+        }
+        catch (HibernateError e) {
+            // ShowException.showNotice(e);
+        }
+        return isUpdated;
+    }
+
+    @Override
+    public boolean deleteProduct(int id) {
+        boolean isDeleted = false;
+        try {
+            if (productDao.deleteProduct(id))
+                isDeleted = true;
+        }
+        catch (HibernateError e) {
+            //  ShowException.showNotice(e);
+        }
+        return isDeleted;
+    }
+
+
+    @Override
     public List<Product> showProduct() {
         List<Product> products = null;
         try {

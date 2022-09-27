@@ -81,7 +81,7 @@ public class RegistrationServlet extends HttpServlet {
                 request.getSession().setAttribute("surname", surname);
                 //List<Person> personList = personService.showPeople();
                 request.setAttribute("group", personService);
-                request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/views/market.jsp").forward(request, response);
             }
         }
     }

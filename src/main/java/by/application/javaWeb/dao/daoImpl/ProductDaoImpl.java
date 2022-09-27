@@ -31,6 +31,41 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
+    public boolean updateProduct(Product product) {
+        boolean isUpdated = false;
+        try {
+            Session session = SessionFactoryImpl.getSessionFactory().openSession();
+            Transaction tx = session.beginTransaction();
+            session.update(product);
+            tx.commit();
+            session.close();
+            isUpdated = true;
+        }
+        catch (NoClassDefFoundError e) {
+            System.out.println("Exception: " + e);
+        }
+        return isUpdated;
+    }
+
+    @Override
+    public boolean deleteProduct(int id) {
+        boolean isDeleted = false;
+        try {
+            Session session = SessionFactoryImpl.getSessionFactory().openSession();
+            Product product = session.load(Product.class, id);
+            Transaction tx = session.beginTransaction();
+            session.delete(product);
+            tx.commit();
+            session.close();
+            isDeleted = true;
+        }
+        catch (NoClassDefFoundError e) {
+            System.out.println("Exception: " + e);
+        }
+        return isDeleted;
+    }
+
+    @Override
     public List<Product> showProduct() {
         List<Product> products = (List<Product>)SessionFactoryImpl.getSessionFactory().
                 openSession().createQuery("FROM Product").list();

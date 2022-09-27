@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -129,11 +130,10 @@
         font-family: Arial, Helvetica, sans-serif;
         font-size: 16px;
         font-weight: bold;
-        color: #FFFFFF;
+        color: gold;
         vertical-align: middle;
-        margin-left: 100px;
-        margin-top: 7px;
-
+        margin-left: 5px;
+        margin-top: 1px;
     }
 
     #search {
@@ -222,7 +222,7 @@
 <div id="layout">
     <div id="title">
         <div id="logo">
-            <a href="WelcomeClassMenu">
+            <a href="WelcomeClassMenuAdmin">
                 <div class="text">Computer</div>
                 <div class="text1">Store</div>
             </a>
@@ -230,11 +230,14 @@
         <div id="links">
             <div id="linktext"><a href="http://all-free-download.com/free-website-templates/" class="abt">About us</a>
                 <a href="http://all-free-download.com/free-website-templates/" class="abt1">Services</a>
-                <a href="Catalog" class="abt1">Catalog</a>
+                <a href="CatalogAdmin" class="abt1">Catalog</a>
                 <a href="http://all-free-download.com/free-website-templates/" class="abt1">Partners</a>
                 <a href="http://all-free-download.com/free-website-templates/" class="abt1">Contacts</a>
-                <a href="LoginServlet" class="abt1">LogIn</a>
-                <a href="AddProductInCatalog" class="abt1">Add product in catalog</a>
+                <a href="AddProductInCatalog" class="abt1">Edit catalog</a>
+                <div class = "abt1"><a href="LogOut" class="abt2">LogOut</a>
+                    <p class = "abt2">/</p>
+                    <a href="RegistrationServlet" class="abt2">Reg</a>
+                </div>
             </div>
         </div>
     </div>
@@ -252,31 +255,6 @@
     </div>
 </div>
 <div>
-<center>
-    <table border="0" align="center" width="50%" high="30px">
-        <tr align="center" bgcolor="#4169e1">
-            <th>id</th>
-            <th>nameprod</th>
-            <th>price</th>
-            <th>manufacturer</th>
-            <th>releaseDate</th>
-        </tr>
-
-        <c:forEach items="${group}" var="product">
-            <tr>
-                <td>${product.id}</td>
-                <td>${product.nameprod}</td>
-                <td> ${product.price}</td>
-                <td> ${product.manufacturer}</td>
-                <td> ${product.releaseDate}</td>
-            </tr>
-        </c:forEach>
-
-        </td>
-        </td>
-
-    </table>
-</center>
     <center>
         <h1>File Upload to Database</h1>
         <p><font color="red">${errorMessage}</font</p>
@@ -306,6 +284,38 @@
             </table>
         </form>
     </center>
+<center>
+    <table border="0" align="center" width="50%" high="30px">
+
+        <tr align="center" bgcolor="#4169e1">
+            <th>ID</th>
+            <th>Nameprod</th>
+            <th>Price</th>
+            <th>Manufacturer</th>
+            <th>Release Date</th>
+            <th>Actions</th>
+        </tr>
+
+        <c:forEach items="${group}" var="product">
+            <tr align="center" bgcolor="#dcffed">
+                <td>${product.id}</td>
+                <td>${product.nameprod}</td>
+                <td> ${product.price}</td>
+                <td> ${product.manufacturer}</td>
+                <td> ${product.releaseDate}</td>
+                <td>
+                    <a href="edit?id=<c:out value='${product.id}' />">Edit</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" id="id" name="delete">Delete</button>
+                </td>
+            </tr>
+        </c:forEach>
+
+        </td>
+        </td>
+
+    </table>
+</center>
 </div>
 
 <div class="content">
