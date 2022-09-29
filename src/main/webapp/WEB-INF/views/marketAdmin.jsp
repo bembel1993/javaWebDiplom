@@ -269,7 +269,7 @@
 
     <tr align="right" valign="bottom">
         <td>
-            ${manufacturer}
+            ${photo}
             <!--     <img src="img/samsungs.jpeg" width="600" height="auto">-->
         </td>
         <td>

@@ -277,6 +277,10 @@
                     <td><input type="text" name="releaseDate" size="50"/></td>
                 </tr>
                 <tr>
+                    <td>Add photo</td>
+                    <td><input type="file" name="photo" size="50"/></td>
+                </tr>
+                <tr>
                     <td colspan="2">
                         <input type="submit" name = "add">
                     </td>
@@ -293,6 +297,7 @@
             <th>Price</th>
             <th>Manufacturer</th>
             <th>Release Date</th>
+            <th>Photo</th>
             <th>Actions</th>
         </tr>
 
@@ -303,6 +308,7 @@
                 <td> ${product.price}</td>
                 <td> ${product.manufacturer}</td>
                 <td> ${product.releaseDate}</td>
+                <td> ${product.photo}</td>
                 <td>
                     <a href="edit?id=<c:out value='${product.id}' />">Edit</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;

@@ -17,18 +17,30 @@ public class Product {
     private String manufacturer;
     @Column (name = "releaseDate")
     private String releaseDate;
+    @Lob
+    @Column(name = "photo")
+    private byte[]  photo;
 
-    public Product(String nameprod, String price, String manufacturer, String releaseDate) {
+    public Product(String nameprod, String price, String manufacturer, String releaseDate, byte[] photo) {
         this.nameprod = nameprod;
         this.price = price;
         this.manufacturer = manufacturer;
         this.releaseDate = releaseDate;
+        this.photo = photo;
     }
 
     public Product(Product product){};
 
     public Product() {
 
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 
     public int getId() {
@@ -79,6 +91,7 @@ public class Product {
                 ", price='" + price + '\'' +
                 ", manufacturer='" + manufacturer + '\'' +
                 ", releaseDate='" + releaseDate + '\'' +
+                ", photo='" + photo +'\'' +
                 '}';
     }
 }

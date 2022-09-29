@@ -265,6 +265,7 @@
             <th>price</th>
             <th>manufacturer</th>
             <th>releaseDate</th>
+            <th>photo</th>
         </tr>
         <c:forEach items="${group}" var="products">
             <tr align="center" bgcolor="#dcffed">
@@ -273,6 +274,7 @@
                 <td>${products.price}</td>
                 <td>${products.manufacturer}</td>
                 <td>${products.releaseDate}</td>
+                <td>${products.photo}</td>
             </tr>
         </c:forEach>
 

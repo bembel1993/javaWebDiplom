@@ -15,7 +15,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +56,10 @@ public class AddProductInCatalog extends HttpServlet {
         String manufacturer = request.getParameter("manufacturer");
         String releaseDate = request.getParameter("releaseDate");
         String delete = request.getParameter("delete");
-        Product product = new Product(nameprod, price, manufacturer, releaseDate);
+        String photo = request.getParameter("photo");
+        byte[] ph = "photo".getBytes(StandardCharsets.UTF_8);
+
+        Product product = new Product(nameprod, price, manufacturer, releaseDate, ph);
         List<Product> productList = productService.showProduct();
         if (("".equals(nameprod)) || ("".equals(price)) || ("".equals(manufacturer))
                 || "".equals(releaseDate)) {
@@ -67,7 +73,7 @@ public class AddProductInCatalog extends HttpServlet {
                                 " |", p.getPrice() + " |", p.getManufacturer() + " |",
                         p.getReleaseDate());
             }
-            ListService.addProduct(new Product(nameprod, price, manufacturer, releaseDate));
+            ListService.addProduct(new Product(nameprod, price, manufacturer, releaseDate, ph));
             request.getSession().setAttribute("group", productList);
             request.getRequestDispatcher("/WEB-INF/views/catalogAdd.jsp").forward(request, response);
         }
