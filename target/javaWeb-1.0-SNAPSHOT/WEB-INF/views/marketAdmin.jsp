@@ -194,7 +194,7 @@
         font-weight: normal;
         color: #8ea11f;
         margin-left: 550px;
-
+        width: 300px;
     }
 
     .readtxtwel {

@@ -19,13 +19,10 @@ import java.util.List;
 public class RegistrationServlet extends HttpServlet {
 
     PersonService personService = new PersonServiceImpl();
-   // private ListAddPersons listAddPersons = new ListAddPersons();
+    // private ListAddPersons listAddPersons = new ListAddPersons();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // List<Person> person = personService.showPeople();
-        // request.setAttribute("person", person);
-        //  request.getRequestDispatcher("/WEB-INF/views/registration.jsp").forward(request, response);
         getServletContext().getRequestDispatcher("/WEB-INF/views/registration.jsp").forward(request, response);
     }
 
@@ -41,12 +38,12 @@ public class RegistrationServlet extends HttpServlet {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         List<Person> personList = personService.showPeople();
-       // Person person = new Person(name, surname, email, date, numberPhone/*, login, password*/);
+        // Person person = new Person(name, surname, email, date, numberPhone/*, login, password*/);
         user = new User(login, password);
         //if (user != null){
-            Person person = new Person(name, surname, email, date, numberPhone/*, login, password*/);
-            user.setPerson(person);
-            person.setUser(user);
+        Person person = new Person(name, surname, email, date, numberPhone/*, login, password*/);
+        user.setPerson(person);
+        person.setUser(user);
         //}
         if (("".equals(name)) || ("".equals(surname)) || ("".equals(date)) || ("".equals(email))
                 || ("".equals(numberPhone)) || ("".equals(login)) || ("".equals(password))) {

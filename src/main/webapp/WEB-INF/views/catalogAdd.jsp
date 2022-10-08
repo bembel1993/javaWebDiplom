@@ -257,7 +257,9 @@
 <div>
     <center>
         <h1>Product Upload to Database</h1>
-        <p><font color="red">${errorMessage}</font</p>
+        <p><font color="red">${errorMessage}</font></p>
+        <p><font color="green">${productIsAdd}</font></p>
+        <p><font color="black">${productIsDelete}</font></p>
         <form method="post" action="AddProductInCatalog">
             <table border="0">
                 <tr>

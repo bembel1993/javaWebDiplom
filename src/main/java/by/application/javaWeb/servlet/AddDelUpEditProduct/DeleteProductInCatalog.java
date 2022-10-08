@@ -1,4 +1,4 @@
-package by.application.javaWeb.servlet.catalog;
+package by.application.javaWeb.servlet.AddDelUpEditProduct;
 
 import by.application.javaWeb.model.ListService;
 import by.application.javaWeb.model.Product;
@@ -19,11 +19,9 @@ import java.util.Scanner;
 public class DeleteProductInCatalog extends HttpServlet {
     //private static final long serialVersionUID = 1L;
     ProductService productService = new ProductServiceImpl();
-    Scanner in = new Scanner(System.in);
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
         String id = request.getParameter("id");
         List<Product> productList = productService.showProduct();
         System.out.println("");
@@ -35,37 +33,18 @@ public class DeleteProductInCatalog extends HttpServlet {
                     product.getReleaseDate());
 
         }
-        productService.deleteProduct(Integer.parseInt(id));
+        if (productService.deleteProduct(Integer.parseInt(id))) {
+            request.setAttribute("productIsDelete", "Product Delete from Catalog");
+            doGet(request, response);
+        }
         System.out.println("---Delete is performed!---");
-
+        request.getSession().setAttribute("id", id);
         request.getSession().setAttribute("group", productList);
         request.getRequestDispatcher("/WEB-INF/views/catalogAdd.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        String id = request.getParameter("id");
-
-        String nameprod = request.getParameter("nameprod");
-        String price = request.getParameter("price");
-        String manufacturer = request.getParameter("manufacturer");
-        String releaseDate = request.getParameter("releaseDate");
-
-        String photo = request.getParameter("photo");
-        byte[] ph = "photo".getBytes(StandardCharsets.UTF_8);
-
-        Product product = new Product(nameprod, price, manufacturer, releaseDate, ph);
-        List<Product> productList = productService.showProduct();
-        System.out.format("%10s%20s%20s%20s%20s", "ID |", "Name Prod |", "Price |", "Manufacturer |", "Release Date ");
-        for (Product p : productList) {
-            System.out.println(" ");
-            System.out.format("%10s%20s%20s%20s%20s", p.getId() + " |", p.getNameprod() +
-                            " |", p.getPrice() + " |", p.getManufacturer() + " |",
-                    p.getReleaseDate());
-        }
-        request.getSession().setAttribute("group", productList);
-        request.getRequestDispatcher("/WEB-INF/views/catalogAdd.jsp").forward(request, response);
+        //getServletContext().getRequestDispatcher("/WEB-INF/views/catalogAdd.jsp").forward(request, response);
     }
-
 }
 

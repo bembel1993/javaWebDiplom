@@ -21,7 +21,7 @@ public class WelcomeClassMenu extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nameprod = request.getParameter("nameprod");
         String ph = request.getParameter("photo");
-        byte[] photo = "photo".getBytes(StandardCharsets.UTF_8);
+        byte[] photo = "ph".getBytes(StandardCharsets.UTF_8);
         List<Product> productList = productService.showProduct();
 
         for (Product p : productList) {
@@ -31,17 +31,7 @@ public class WelcomeClassMenu extends HttpServlet {
         }
         request.setAttribute("nameprod", nameprod);
         request.setAttribute("photo", photo);
-        request.getRequestDispatcher("WEB-INF/views/market.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/WEB-INF/views/market.jsp").forward(request, response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nameprod = request.getParameter("nameprod");
-        String manufacturer = request.getParameter("manufacturer");
-        List<Product> productList = productService.showProduct();
-        request.setAttribute("nameprod", nameprod);
-        request.setAttribute("manufacturer", manufacturer);
-        request.getRequestDispatcher("/WEB-INF/views/market.jsp").forward(request, response);
-
-    }
 }

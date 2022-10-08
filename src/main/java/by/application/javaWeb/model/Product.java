@@ -7,19 +7,19 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id")
+    @Column(name = "id")
     private int id;
-    @Column (name = "nameprod")
+    @Column(name = "nameprod")
     private String nameprod;
-    @Column (name = "price")
+    @Column(name = "price")
     private String price;
-    @Column (name = "manufacturer")
+    @Column(name = "manufacturer")
     private String manufacturer;
-    @Column (name = "releaseDate")
+    @Column(name = "releaseDate")
     private String releaseDate;
     @Lob
     @Column(name = "photo")
-    private byte[]  photo;
+    private byte[] photo;
 
     public Product(String nameprod, String price, String manufacturer, String releaseDate, byte[] photo) {
         this.nameprod = nameprod;
@@ -28,8 +28,28 @@ public class Product {
         this.releaseDate = releaseDate;
         this.photo = photo;
     }
+    public Product(int Id, String nameprod, String price, String manufacturer, String releaseDate) {
+        this.id = id;
+        this.nameprod = nameprod;
+        this.price = price;
+        this.manufacturer = manufacturer;
+        this.releaseDate = releaseDate;
+    }
+    public Product(int Id, String nameprod, String price, String manufacturer, String releaseDate, byte[] photo) {
+        this.id = id;
+        this.nameprod = nameprod;
+        this.price = price;
+        this.manufacturer = manufacturer;
+        this.releaseDate = releaseDate;
+        this.photo = photo;
+    }
 
-    public Product(Product product){};
+    public Product(Product product) {
+    }
+
+    public Product(int id) {
+        this.id = id;
+    }
 
     public Product() {
 
@@ -91,7 +111,7 @@ public class Product {
                 ", price='" + price + '\'' +
                 ", manufacturer='" + manufacturer + '\'' +
                 ", releaseDate='" + releaseDate + '\'' +
-                ", photo='" + photo +'\'' +
+                ", photo='" + photo + '\'' +
                 '}';
     }
 }

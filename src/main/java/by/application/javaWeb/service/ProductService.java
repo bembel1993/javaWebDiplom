@@ -10,5 +10,6 @@ public interface ProductService {
     boolean updateProduct(Product product);
     boolean deleteProduct(int id);
     List<Product> showProduct();
-    Product findProductByName(String nameprod);
+    Product findProductById(int id);
+    Product findProductName(String namprod);
 }

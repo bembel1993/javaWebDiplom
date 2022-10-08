@@ -39,6 +39,7 @@ public class ProductDaoImpl implements ProductDao {
             session.update(product);
             tx.commit();
             session.close();
+            System.out.println("Session success - Update");
             isUpdated = true;
         }
         catch (NoClassDefFoundError e) {
@@ -57,6 +58,7 @@ public class ProductDaoImpl implements ProductDao {
             session.delete(product);
             tx.commit();
             session.close();
+            System.out.println("Session success - delete");
             isDeleted = true;
         }
         catch (NoClassDefFoundError e) {
@@ -73,7 +75,26 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public Product findProductByName(String nameprod) {
+    public Product findProductById(int id) {
+        Product product = null;
+        try {
+            Session session = SessionFactoryImpl.getSessionFactory().openSession();
+            Transaction tx = session.beginTransaction();
+            CriteriaBuilder cb = session.getCriteriaBuilder();
+            CriteriaQuery<Product> cr = cb.createQuery(Product.class);
+            Root<Product> root = cr.from(Product.class);
+            cr.select(root).where(cb.equal(root.get("id"), id));
+            product = session.createQuery(cr).getSingleResult();
+            tx.commit();
+            session.close();
+        }
+        catch (NoClassDefFoundError e) {
+            System.out.println("Exception: " + e);
+        }
+        return product;
+    }
+    @Override
+    public Product findProductName(String nameprod) {
         Product product = null;
         try {
             Session session = SessionFactoryImpl.getSessionFactory().openSession();

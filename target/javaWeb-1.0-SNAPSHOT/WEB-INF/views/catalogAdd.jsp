@@ -234,8 +234,8 @@
                 <a href="http://all-free-download.com/free-website-templates/" class="abt1">Partners</a>
                 <a href="http://all-free-download.com/free-website-templates/" class="abt1">Contacts</a>
                 <a href="AddProductInCatalog" class="abt1">Edit catalog</a>
-                <div class = "abt1"><a href="LogOut" class="abt2">LogOut</a>
-                    <p class = "abt2">/</p>
+                <div class="abt1"><a href="LogOut" class="abt2">LogOut</a>
+                    <p class="abt2">/</p>
                     <a href="RegistrationServlet" class="abt2">Reg</a>
                 </div>
             </div>
@@ -256,24 +256,26 @@
 </div>
 <div>
     <center>
-        <h1>File Upload to Database</h1>
-        <p><font color="red">${errorMessage}</font</p>
+        <h1>Product Upload to Database</h1>
+        <p><font color="red">${errorMessage}</font></p>
+        <p><font color="green">${productIsAdd}</font></p>
+        <p><font color="black">${productIsDelete}</font></p>
         <form method="post" action="AddProductInCatalog">
             <table border="0">
                 <tr>
-                    <td>Name production: </td>
+                    <td>Name production:</td>
                     <td><input type="text" name="nameprod" size="50"/></td>
                 </tr>
                 <tr>
-                    <td>Price: </td>
+                    <td>Price:</td>
                     <td><input type="text" name="price" size="50"/></td>
                 </tr>
                 <tr>
-                    <td>Manufacturer: </td>
+                    <td>Manufacturer:</td>
                     <td><input type="text" name="manufacturer" size="50"/></td>
                 </tr>
                 <tr>
-                    <td>Release Date: </td>
+                    <td>Release Date:</td>
                     <td><input type="text" name="releaseDate" size="50"/></td>
                 </tr>
                 <tr>
@@ -282,46 +284,46 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name = "add">
+                        <button type="submit" id="insertProduct" name="insertProduct"> insert</button>
                     </td>
                 </tr>
             </table>
         </form>
     </center>
-<center>
-    <table border="0" align="center" width="50%" high="30px">
+    <center>
+        <table border="0" align="center" width="50%" high="30px">
 
-        <tr align="center" bgcolor="#4169e1">
-            <th>ID</th>
-            <th>Nameprod</th>
-            <th>Price</th>
-            <th>Manufacturer</th>
-            <th>Release Date</th>
-            <th>Photo</th>
-            <th>Actions</th>
-        </tr>
-
-        <c:forEach items="${group}" var="product">
-            <tr align="center" bgcolor="#dcffed">
-                <td>${product.id}</td>
-                <td>${product.nameprod}</td>
-                <td> ${product.price}</td>
-                <td> ${product.manufacturer}</td>
-                <td> ${product.releaseDate}</td>
-                <td> ${product.photo}</td>
-                <td>
-                    <a href="edit?id=<c:out value='${product.id}' />">Edit</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="submit" id="id" name="delete">Delete</button>
-                </td>
+            <tr align="center" bgcolor="#4169e1">
+                <th>ID</th>
+                <th>Nameprod</th>
+                <th>Price</th>
+                <th>Manufacturer</th>
+                <th>Release Date</th>
+                <th>Photo</th>
+                <th>Actions</th>
             </tr>
-        </c:forEach>
 
-        </td>
-        </td>
+            <c:forEach items="${group}" var="product">
+                <tr align="center" bgcolor="#dcffed">
+                    <td>${product.id}</td>
+                    <td>${product.nameprod}</td>
+                    <td> ${product.price}</td>
+                    <td> ${product.manufacturer}</td>
+                    <td> ${product.releaseDate}</td>
+                    <td> ${product.photo}</td>
+                    <td style="width:150px">
+                        <a href="${pageContext.request.contextPath }/EditProductInCatalog?action=edit&id=${product.id}">Edit</a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a href="${pageContext.request.contextPath }/DeleteProductInCatalog?action=delete&id=${product.id }">Delete</a>
+                    </td>
+                </tr>
+            </c:forEach>
 
-    </table>
-</center>
+            </td>
+            </td>
+            </form>
+        </table>
+    </center>
 </div>
 
 <div class="content">
@@ -329,5 +331,7 @@
     <div>1-800-123-45678</div>
     <div>1-800-222-45678</div>
 </div>
+
+</script>
 </body>
 </html>

@@ -42,8 +42,10 @@ public class ProductServiceImpl implements ProductService {
     public boolean deleteProduct(int id) {
         boolean isDeleted = false;
         try {
-            if (productDao.deleteProduct(id))
+            if (productDao.deleteProduct(id)){
+                System.out.println("Session success - delete");
                 isDeleted = true;
+            }
         }
         catch (HibernateError e) {
             //  ShowException.showNotice(e);
@@ -65,10 +67,22 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product findProductByName(String nameprod) {
+    public Product findProductById(int id) {
         Product product = null;
         try {
-            product = productDao.findProductByName(nameprod);
+            product = productDao.findProductById(id);
+        }
+        catch (HibernateError e) {
+            // ShowException.showNotice(e);
+        }
+        return product;
+    }
+
+    @Override
+    public Product findProductName(String nameprod) {
+        Product product = null;
+        try {
+            product = productDao.findProductName(nameprod);
         }
         catch (HibernateError e) {
             // ShowException.showNotice(e);

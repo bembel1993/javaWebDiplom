@@ -231,7 +231,7 @@
             <div id="linktext"><a href="http://all-free-download.com/free-website-templates/" class="abt">About us</a>
                 <a href="http://all-free-download.com/free-website-templates/" class="abt1">Services</a>
                 <a href="Catalog" class="abt1">Catalog</a>
-                <a href="http://all-free-download.com/free-website-templates/" class="abt1">Partners</a>
+                <a href="" class="abt1">Partners</a>
                 <a href="http://all-free-download.com/free-website-templates/" class="abt1">Contacts</a>
                 <div class = "abt1"><a href="LoginServlet" class="abt2">LogIn</a>
                     <p class = "abt2">/</p>
@@ -242,6 +242,7 @@
     </div>
 
     <div id="searchbg">
+        <form >
         <div id="search">
             <div class="searchtxt">Search Product</div>
             <div id="textfield">

@@ -231,7 +231,7 @@
                 <a href="Catalog" class="abt1">Catalog</a>
                 <a href="http://all-free-download.com/free-website-templates/" class="abt1">Partners</a>
                 <a href="http://all-free-download.com/free-website-templates/" class="abt1">Contacts</a>
-                <div class = "abt1"><a href="LoginServlet" class="abt2">LogIn</a>
+                <div class = "abt1"><a href="AddProductInCatalog" class="abt2">LogIn</a>
                 <p class = "abt2">/</p>
                 <a href="RegistrationServlet" class="abt2">Reg</a>
                 </div>
@@ -243,8 +243,14 @@
         <div id="search">
             <div class="searchtxt">Search Product</div>
             <div id="textfield">
+                <form method="POST" action="SearchProduct">
                 <input type="text" name="textfield"/>
-                <button type="submit" name="search">Search</button>
+                <button type="submit" name="search">
+                    <a href="${pageContext.request.contextPath }/SearchProduct?action=search&nameprod=${product.nameprod}">
+                    Search
+                    </a>
+                </button>
+                </form>
             </div>
             <div id="bullet5"></div>
         </div>
