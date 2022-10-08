@@ -251,40 +251,43 @@
             </div>
             <div id="bullet5"></div>
         </div>
-        <div class="welcome"> ${name} you are in Catalog!</div>
+        <div class="welcome"> ${name} you are in Catalog Editor!</div>
     </div>
 </div>
 <div>
     <center>
         <h1>Edit to Database</h1>
         <p><font color="red">${errorMessage}</font</p>
-        <form method="post" action="AddProductInCatalog">
+        <form method="post" action="EditProductInCatalog">
             <table border="0">
+                <form method="POST" action="EditProductInCatalog">
+                <tr>
+                    ${id}
+                    <td>Id: </td>
+                    <td><input type="text" name="id" id="id" size="50"/></td>
+                </tr>
                 <tr>
                     <td>Name production: </td>
-                    <td><input type="text" name="nameprod" size="50"/></td>
+                    <td><input type="text" name="nameprod" id="nameprod" size="50"/></td>
                 </tr>
                 <tr>
                     <td>Price: </td>
-                    <td><input type="text" name="price" size="50"/></td>
+                    <td><input type="text" name="price" id="price" size="50"/></td>
                 </tr>
                 <tr>
                     <td>Manufacturer: </td>
-                    <td><input type="text" name="manufacturer" size="50"/></td>
+                    <td><input type="text" name="manufacturer" id="manufacturer" size="50"/></td>
                 </tr>
                 <tr>
                     <td>Release Date: </td>
-                    <td><input type="text" name="releaseDate" size="50"/></td>
-                </tr>
-                <tr>
-                    <td>Add photo</td>
-                    <td><input type="file" name="photo" size="50"/></td>
+                    <td><input type="text" name="releaseDate" id = "releaseDate" size="50"/></td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <input type="submit" name = "add">
                     </td>
                 </tr>
+                </form>
             </table>
         </form>
     </center>
@@ -296,4 +299,6 @@
     <div>1-800-222-45678</div>
 </div>
 </body>
+
+
 </html>
