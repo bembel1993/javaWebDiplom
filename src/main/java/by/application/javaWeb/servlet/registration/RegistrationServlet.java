@@ -1,8 +1,8 @@
 package by.application.javaWeb.servlet.registration;
 
 
-import by.application.javaWeb.model.Person;
-import by.application.javaWeb.model.User;
+import by.application.javaWeb.model.person.Person;
+import by.application.javaWeb.model.person.User;
 import by.application.javaWeb.service.PersonService;
 import by.application.javaWeb.service.serviceImpl.PersonServiceImpl;
 
@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "RegistrationServlet", urlPatterns = "/RegistrationServlet")

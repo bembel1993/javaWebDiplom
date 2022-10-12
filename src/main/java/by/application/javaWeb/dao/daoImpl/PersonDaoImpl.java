@@ -1,7 +1,7 @@
 package by.application.javaWeb.dao.daoImpl;
 
 import by.application.javaWeb.dao.PersonDao;
-import by.application.javaWeb.model.Person;
+import by.application.javaWeb.model.person.Person;
 import by.application.javaWeb.sessionFactory.SessionFactoryImpl;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

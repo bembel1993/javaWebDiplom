@@ -1,20 +1,16 @@
 package by.application.javaWeb.servlet.catalog;
 
-import by.application.javaWeb.model.ListService;
-import by.application.javaWeb.model.Person;
-import by.application.javaWeb.model.Product;
+import by.application.javaWeb.model.person.ListService;
+import by.application.javaWeb.model.product.Product;
 import by.application.javaWeb.service.ProductService;
 import by.application.javaWeb.service.serviceImpl.ProductServiceImpl;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "Catalog", urlPatterns = "/Catalog")

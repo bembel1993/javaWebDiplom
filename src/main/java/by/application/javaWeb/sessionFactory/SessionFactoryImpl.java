@@ -1,8 +1,8 @@
 package by.application.javaWeb.sessionFactory;
 
-import by.application.javaWeb.model.Person;
-import by.application.javaWeb.model.Product;
-import by.application.javaWeb.model.User;
+import by.application.javaWeb.model.person.Person;
+import by.application.javaWeb.model.product.Product;
+import by.application.javaWeb.model.person.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;

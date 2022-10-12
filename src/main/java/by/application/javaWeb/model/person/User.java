@@ -1,4 +1,4 @@
-package by.application.javaWeb.model;
+package by.application.javaWeb.model.person;
 
 import javax.persistence.*;
 

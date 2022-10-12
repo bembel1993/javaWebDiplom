@@ -226,12 +226,13 @@
             </a>
         </div>
         <div id="links">
-            <div id="linktext"><a href="http://all-free-download.com/free-website-templates/" class="abt">About us</a>
-                <a href="http://all-free-download.com/free-website-templates/" class="abt1">Services</a>
+            <div id="linktext"><a href="" class="abt">About us</a>
+                <a href="" class="abt1">Services</a>
                 <a href="Catalog" class="abt1">Catalog</a>
-                <a href="http://all-free-download.com/free-website-templates/" class="abt1">Partners</a>
-                <a href="http://all-free-download.com/free-website-templates/" class="abt1">Contacts</a>
-                <div class = "abt1"><a href="AddProductInCatalog" class="abt2">LogIn</a>
+                <a href="" class="abt1">Partners</a>
+                <a href="" class="abt1">Contacts</a>
+                <div class = "abt1"><a href="LoginServlet" class="abt2">LogIn</a>
+                <!--<div class = "abt1"><a href="AddProductInCatalog" class="abt2">LogIn</a>-->
                 <p class = "abt2">/</p>
                 <a href="RegistrationServlet" class="abt2">Reg</a>
                 </div>

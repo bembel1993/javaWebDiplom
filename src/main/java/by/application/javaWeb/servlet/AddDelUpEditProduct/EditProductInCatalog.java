@@ -1,7 +1,6 @@
 package by.application.javaWeb.servlet.AddDelUpEditProduct;
 
-import by.application.javaWeb.model.Person;
-import by.application.javaWeb.model.Product;
+import by.application.javaWeb.model.product.Product;
 import by.application.javaWeb.service.ProductService;
 import by.application.javaWeb.service.serviceImpl.ProductServiceImpl;
 
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
-import java.util.Scanner;
 
 
 @WebServlet(name = "EditProductInCatalog", urlPatterns = "/EditProductInCatalog")

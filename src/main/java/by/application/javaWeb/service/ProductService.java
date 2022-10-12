@@ -1,7 +1,6 @@
 package by.application.javaWeb.service;
 
-import by.application.javaWeb.model.Person;
-import by.application.javaWeb.model.Product;
+import by.application.javaWeb.model.product.Product;
 
 import java.util.List;
 

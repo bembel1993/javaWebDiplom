@@ -1,6 +1,6 @@
 package by.application.javaWeb.dao;
 
-import by.application.javaWeb.model.Person;
+import by.application.javaWeb.model.person.Person;
 
 import java.util.List;
 

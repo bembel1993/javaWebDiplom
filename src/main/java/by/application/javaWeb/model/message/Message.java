@@ -1,4 +1,4 @@
-package by.application.javaWeb.model;
+package by.application.javaWeb.model.message;
 
 import javax.persistence.*;
 

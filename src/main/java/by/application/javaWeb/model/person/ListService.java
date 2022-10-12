@@ -1,4 +1,6 @@
-package by.application.javaWeb.model;
+package by.application.javaWeb.model.person;
+
+import by.application.javaWeb.model.product.Product;
 
 import java.util.ArrayList;
 import java.util.List;

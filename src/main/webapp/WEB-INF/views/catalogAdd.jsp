@@ -186,7 +186,7 @@
 
     #curve {
         background-image: url("curve.jpg");
-        width: 775px;
+        width: 1000px;
         height: 79px;
         background-repeat: no-repeat;
     }
@@ -196,7 +196,7 @@
         font-size: 18px;
         font-weight: normal;
         color: #8ea11f;
-        margin-left: 550px;
+        margin-left: 100px;
 
     }
 
@@ -228,11 +228,11 @@
             </a>
         </div>
         <div id="links">
-            <div id="linktext"><a href="http://all-free-download.com/free-website-templates/" class="abt">About us</a>
-                <a href="http://all-free-download.com/free-website-templates/" class="abt1">Services</a>
+            <div id="linktext"><a href="" class="abt">About us</a>
+                <a href="" class="abt1">Services</a>
                 <a href="CatalogAdmin" class="abt1">Catalog</a>
-                <a href="http://all-free-download.com/free-website-templates/" class="abt1">Partners</a>
-                <a href="http://all-free-download.com/free-website-templates/" class="abt1">Contacts</a>
+                <a href="" class="abt1">Partners</a>
+                <a href="" class="abt1">Contacts</a>
                 <a href="AddProductInCatalog" class="abt1">Edit catalog</a>
                 <div class="abt1"><a href="LogOut" class="abt2">LogOut</a>
                     <p class="abt2">/</p>
@@ -256,7 +256,9 @@
 </div>
 <div>
     <center>
-        <h1>Product Upload to Database</h1>
+        <div id="curve">
+            <div class="onsale"><h1>Product Upload to Database</h1></div>
+        </div>
         <p><font color="red">${errorMessage}</font></p>
         <p><font color="green">${productIsAdd}</font></p>
         <p><font color="black">${productIsDelete}</font></p>

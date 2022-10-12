@@ -1,4 +1,4 @@
-<%@ page import="by.application.javaWeb.model.Product" %>
+<%@ page import="by.application.javaWeb.model.product.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="by.application.javaWeb.dao.ProductDao" %><%--
   Created by IntelliJ IDEA.

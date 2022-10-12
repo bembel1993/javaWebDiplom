@@ -1,6 +1,6 @@
 package by.application.javaWeb.servlet;
 
-import by.application.javaWeb.model.Product;
+import by.application.javaWeb.model.product.Product;
 import by.application.javaWeb.service.ProductService;
 import by.application.javaWeb.service.serviceImpl.ProductServiceImpl;
 

@@ -1,7 +1,6 @@
 package by.application.javaWeb.servlet.AddDelUpEditProduct;
 
-import by.application.javaWeb.model.ListService;
-import by.application.javaWeb.model.Product;
+import by.application.javaWeb.model.product.Product;
 import by.application.javaWeb.service.ProductService;
 import by.application.javaWeb.service.serviceImpl.ProductServiceImpl;
 
@@ -11,9 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
-import java.util.Scanner;
 
 @WebServlet(name = "DeleteProductInCatalog", urlPatterns = "/DeleteProductInCatalog")
 public class DeleteProductInCatalog extends HttpServlet {
@@ -35,7 +32,7 @@ public class DeleteProductInCatalog extends HttpServlet {
         }
         if (productService.deleteProduct(Integer.parseInt(id))) {
             request.setAttribute("productIsDelete", "Product Delete from Catalog");
-            doGet(request, response);
+           // doGet(request, response);
         }
         System.out.println("---Delete is performed!---");
         request.getSession().setAttribute("id", id);
@@ -44,7 +41,7 @@ public class DeleteProductInCatalog extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //getServletContext().getRequestDispatcher("/WEB-INF/views/catalogAdd.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/WEB-INF/views/catalogAdd.jsp").forward(request, response);
     }
 }
 

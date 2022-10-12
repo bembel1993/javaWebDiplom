@@ -1,7 +1,7 @@
-package by.application.javaWeb.model;
+package by.application.javaWeb.model.person;
 
 import javax.persistence.*;
-import java.util.Objects;
+
 @Entity
 @Table(name = "person")
 public class Person {

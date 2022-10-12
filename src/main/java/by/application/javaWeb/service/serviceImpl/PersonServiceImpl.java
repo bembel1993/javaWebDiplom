@@ -2,7 +2,7 @@ package by.application.javaWeb.service.serviceImpl;
 
 import by.application.javaWeb.dao.PersonDao;
 import by.application.javaWeb.dao.daoImpl.PersonDaoImpl;
-import by.application.javaWeb.model.Person;
+import by.application.javaWeb.model.person.Person;
 import by.application.javaWeb.service.PersonService;
 import org.hibernate.HibernateError;
 
