@@ -1,6 +1,7 @@
-package com.mballem.tutorial.dao;
+package by.application.javaWeb.dao;
 
-import com.mballem.tutorial.entity.FileEntity;
+
+import by.application.javaWeb.model.file.FileEntity;
 
 import java.io.Serializable;
 import java.util.List;

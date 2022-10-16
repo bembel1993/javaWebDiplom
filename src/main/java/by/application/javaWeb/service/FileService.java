@@ -1,8 +1,9 @@
-package com.mballem.tutorial.service;
+package by.application.javaWeb.service;
 
-import com.mballem.tutorial.dao.FileDao;
-import com.mballem.tutorial.dao.IFileDao;
-import com.mballem.tutorial.entity.FileEntity;
+
+import by.application.javaWeb.dao.daoImpl.FileDao;
+import by.application.javaWeb.dao.IFileDao;
+import by.application.javaWeb.model.file.FileEntity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -89,7 +90,6 @@ public class FileService {
         int month = calendar.get(Calendar.MONTH) + 1;
         return String.valueOf(month);
     }
-
     private String getFileName(final Part part) {
         final String partHeader = part.getHeader("content-disposition");
         logger.info("Part Header = {0} " + partHeader);

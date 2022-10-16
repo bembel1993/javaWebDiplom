@@ -1,7 +1,9 @@
-package com.mballem.tutorial.dao;
+package by.application.javaWeb.dao.daoImpl;
 
-import com.mballem.tutorial.entity.FileEntity;
-import com.mballem.tutorial.util.HibernateUtil;
+
+import by.application.javaWeb.dao.IFileDao;
+import by.application.javaWeb.model.file.FileEntity;
+import by.application.javaWeb.sessionFactory.SessionFactoryImpl;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
@@ -13,7 +15,7 @@ import java.util.List;
 public class FileDao implements IFileDao<FileEntity> {
 
     public void save(FileEntity entity) {
-        Session session = HibernateUtil.getSession();
+        Session session = SessionFactoryImpl.getSessionFactory().openSession();
         session.beginTransaction();
         session.save(entity);
         session.getTransaction().commit();
@@ -21,11 +23,10 @@ public class FileDao implements IFileDao<FileEntity> {
 
     @SuppressWarnings("unchecked")
     public List<FileEntity> findAll() {
-        Session session = HibernateUtil.getSession();
+        Session session = SessionFactoryImpl.getSessionFactory().openSession();;
         session.beginTransaction();
 
-        List<FileEntity> entities =
-                session.createCriteria(FileEntity.class).list();
+        List<FileEntity> entities = session.createCriteria(FileEntity.class).list();
 
         session.getTransaction().commit();
         return entities;
@@ -33,7 +34,7 @@ public class FileDao implements IFileDao<FileEntity> {
 
     @Override
     public FileEntity find(String year, String month, String name) {
-        Session session = HibernateUtil.getSession();
+        Session session = SessionFactoryImpl.getSessionFactory().openSession();;
         session.beginTransaction();
 
         FileEntity entity = (FileEntity) session.createCriteria(FileEntity.class)
