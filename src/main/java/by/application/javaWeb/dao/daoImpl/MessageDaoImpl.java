@@ -19,6 +19,7 @@ public class MessageDaoImpl implements MessageDao {
             session.save(message);
             tx.commit();
             session.close();
+            System.out.println("Session success - add");
             isAdded = true;
         } catch (NoClassDefFoundError e) {
             System.out.println("Exception: " + e);
@@ -29,7 +30,7 @@ public class MessageDaoImpl implements MessageDao {
     @Override
     public List<Message> showMessage() {
         List<Message> messages = (List<Message>) SessionFactoryImpl.getSessionFactory().
-                openSession().createQuery("FROM Message ").list();
+                openSession().createQuery("FROM Message order by id desc").list();
         return messages;
     }
 }

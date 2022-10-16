@@ -104,6 +104,7 @@ public class ProductDaoImpl implements ProductDao {
             product = session.createQuery(cr).getSingleResult();
             tx.commit();
             session.close();
+            System.out.println("find by name - success");
         }
         catch (NoClassDefFoundError e) {
             System.out.println("Exception: " + e);
